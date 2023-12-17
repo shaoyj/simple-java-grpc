@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: grpc-service-consumer-demo
+
+myn-grpc:
+  map:
+    grpc-service-demo: 127.0.0.1:8081

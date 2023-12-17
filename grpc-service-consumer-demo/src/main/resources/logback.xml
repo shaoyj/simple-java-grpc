@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <statusListener class="ch.qos.logback.core.status.NopStatusListener"/>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+
+    <property scope="context" name="appName" value="${APP_NAME:-api-server}"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder charset="UTF-8">
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>

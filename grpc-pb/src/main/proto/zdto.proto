@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package api_base;//proto package name to avoid naming conflicts and can also be used when introducing other proto files
+option java_multiple_files = true;
+option java_package = "com.mylomen.grpc.pb";//The generated class will have this package name. If not specified, package will be used.
+option java_outer_classname = "GrpcCommon";
+
+import "google/api/annotations.proto";
+
+message ComReq   {
+  int64 id = 1;
+  string target = 2;
+  string method = 3;
+
+  bytes headers = 4;
+  bytes body = 5;
+}
+
+message ByteResult   {
+  int32 code = 1;
+  string msg = 2;
+  bytes data = 3;
+}
+
+
+service BaseService {
+  rpc execute (ComReq) returns ( ByteResult){
+    option (google.api.http) = {
+      post: "/rpc/v1/base/execute"
+      body: "*"
+    };
+  }
+}
