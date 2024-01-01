@@ -11,6 +11,7 @@ import com.mylomen.grpc.utils.*;
 import io.grpc.stub.StreamObserver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.MDC;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
@@ -109,6 +110,7 @@ public class MynServerGRpcImplProxy extends BaseServiceGrpc.BaseServiceImplBase 
             return;
         } finally {
             FbRpcContent.clear();
+            MDC.clear();
         }
 
         //null
