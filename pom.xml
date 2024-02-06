@@ -19,7 +19,7 @@
         <module>grpc-client</module>
         <module>grpc-server</module>
         <module>grpc-service-consumer-demo</module>
-        <module>grpc-service-demo</module>
+        <module>grpc-service-product-demo</module>
     </modules>
 
     <properties>
