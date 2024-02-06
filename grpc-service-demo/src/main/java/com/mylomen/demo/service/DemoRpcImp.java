@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.TimeUnit;
+
 @RestController
 @RequestMapping("/v1/demo/")
 @MynGRpcServer
@@ -30,6 +32,11 @@ public class DemoRpcImp implements DemoRpc {
     @PostMapping("hello")
     @Override
     public MynResponse<DemoReq> hello(@RequestBody DemoReq req) {
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         return MynResponse.ok(req);
     }
 }

@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.mylomen</groupId>
-        <artifactId>java-grpc</artifactId>
+        <artifactId>simple-java-grpc</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 

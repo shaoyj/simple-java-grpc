@@ -7,6 +7,14 @@ package com.mylomen.grpc.constant;
  **/
 public interface CommonConstants {
 
+    /**
+     * 基础配置
+     */
+    interface Base {
+        int TimeoutSecond = 1;
+    }
+
+
     interface Header {
 
         String UID = "uid";
@@ -22,4 +30,6 @@ public interface CommonConstants {
         String CLIENT_IP = "CLIENT_IP";
 
     }
+
+
 }
