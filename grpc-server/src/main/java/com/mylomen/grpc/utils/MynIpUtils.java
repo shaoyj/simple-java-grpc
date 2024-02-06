@@ -2,7 +2,7 @@ package com.mylomen.grpc.utils;
 
 import jakarta.servlet.http.HttpServletRequest;
 
-public class FbIpUtils {
+public class MynIpUtils {
 
     /**
      * @param request

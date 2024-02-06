@@ -2,7 +2,7 @@ package com.mylomen.grpc.client;
 
 
 import com.mylomen.gprc.client.MynGrpcClient;
-import com.mylomen.grpc.utils.FbClazzUtils;
+import com.mylomen.grpc.utils.MynClazzUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
@@ -21,7 +21,7 @@ public class ScanJarForMynClient implements BeanDefinitionRegistryPostProcessor 
 
     public void run(BeanDefinitionRegistry registry) {
         //扫描到的目标类集合
-        Set<Class<?>> targetClazzSet = FbClazzUtils.loadClazzSet(MynClientConfigurationSelector.getPkgList(), MynGrpcClient.class);
+        Set<Class<?>> targetClazzSet = MynClazzUtils.loadClazzSet(MynClientConfigurationSelector.getPkgList(), MynGrpcClient.class);
         if (CollectionUtils.isEmpty(targetClazzSet)) {
             throw new RuntimeException("loadClazzSet_empty : " + Arrays.toString(MynClientConfigurationSelector.getPkgList()));
         }

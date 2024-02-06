@@ -14,8 +14,8 @@ import java.lang.annotation.Annotation;
 import java.util.HashSet;
 import java.util.Set;
 
-public class FbClazzUtils {
-    private final static Logger logger = LoggerFactory.getLogger(FbClazzUtils.class);
+public class MynClazzUtils {
+    private final static Logger logger = LoggerFactory.getLogger(MynClazzUtils.class);
 
     private final static String RESOURCE_PATTERN = "/**/*.class";
     private final static String RESOURCE_CLASS_PATTERN = "classpath*:/**/*.class";

@@ -8,7 +8,7 @@ import java.util.Objects;
 /**
  *
  */
-public class FbRpcContent {
+public class MynRpcContent {
 
     private static final ThreadLocal<Map<String, Object>> inheritableRequestAttributesHolder = new NamedInheritableThreadLocal<>("fbRpc ctx");
 
@@ -31,7 +31,7 @@ public class FbRpcContent {
             return null;
         }
 
-        return FbMapUtils.getStringValue(map, key);
+        return MynMapUtils.getStringValue(map, key);
     }
 
     public static Integer getRpcCtxInt(String key) {
@@ -40,7 +40,7 @@ public class FbRpcContent {
             return null;
         }
 
-        return FbMapUtils.getIntegerValue(map, key);
+        return MynMapUtils.getIntegerValue(map, key);
     }
 
     public static Long getRpcCtxLong(String key) {
@@ -49,6 +49,6 @@ public class FbRpcContent {
             return null;
         }
 
-        return FbMapUtils.getLongValue(map, key);
+        return MynMapUtils.getLongValue(map, key);
     }
 }

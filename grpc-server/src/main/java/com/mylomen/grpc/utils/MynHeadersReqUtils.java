@@ -21,19 +21,19 @@ public class MynHeadersReqUtils {
         //uid
         Long uid = req.getUid();
         if (NumUtils.isNullOrZero(uid)) {
-            req.setUid(FbMapUtils.getLongValue(map, CommonConstants.Header.UID));
+            req.setUid(MynMapUtils.getLongValue(map, CommonConstants.Header.UID));
         }
 
         //traceId
         String traceId = req.getTraceId();
         if (ObjectUtils.isEmpty(traceId)) {
-            req.setTraceId(FbMapUtils.getStringValue(map, CommonConstants.Header.TRACE_ID));
+            req.setTraceId(MynMapUtils.getStringValue(map, CommonConstants.Header.TRACE_ID));
         }
 
         //clientIp
         String clientIp = req.getClientIp();
         if (ObjectUtils.isEmpty(clientIp)) {
-            req.setClientIp(FbMapUtils.getStringValue(map, CommonConstants.Header.CLIENT_IP));
+            req.setClientIp(MynMapUtils.getStringValue(map, CommonConstants.Header.CLIENT_IP));
         }
     }
 

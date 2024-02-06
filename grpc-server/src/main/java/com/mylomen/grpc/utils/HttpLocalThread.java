@@ -64,7 +64,7 @@ public class HttpLocalThread {
     public static String GetHeaderValue(String key) {
         key = key.toLowerCase();
 
-        String val = FbRpcContent.getRpcCtxString(key);
+        String val = MynRpcContent.getRpcCtxString(key);
         if (ObjectUtils.isNotEmpty(val)) {
             return val;
         }
@@ -76,7 +76,7 @@ public class HttpLocalThread {
     public static String GetHeaderValue(String key, HttpServletRequest request) {
         key = key.toLowerCase();
 
-        String val = FbRpcContent.getRpcCtxString(key);
+        String val = MynRpcContent.getRpcCtxString(key);
         if (ObjectUtils.isNotEmpty(val)) {
             return val;
         }
@@ -88,13 +88,13 @@ public class HttpLocalThread {
     public static String parseClientIp() {
         //转成小写
         String key = CommonConstants.Header.CLIENT_IP.toLowerCase();
-        String val = FbRpcContent.getRpcCtxString(key);
+        String val = MynRpcContent.getRpcCtxString(key);
         if (ObjectUtils.isNotEmpty(val)) {
             return val;
         }
 
         HttpServletRequest request = getRequest();
-        return Objects.isNull(request) ? null : FbIpUtils.getIpAddress(request);
+        return Objects.isNull(request) ? null : MynIpUtils.getIpAddress(request);
     }
 
 

@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 
-public class FbMapUtils {
+public class MynMapUtils {
 
     private static ObjectMapper mapper = new ObjectMapper();
 

@@ -79,7 +79,7 @@ public class MynServerGRpcImplProxy extends BaseServiceGrpc.BaseServiceImplBase 
                 Map<String, Object> headerMap = JsonUtils.parseMap(request.getHeaders().toByteArray());
                 MynHeadersReqUtils.ParseHeadersInfo(tempReq, headerMap);
                 MynHeadersReqUtils.fillLog(tempReq);
-                FbRpcContent.setValue(headerMap);
+                MynRpcContent.setValue(headerMap);
 
                 parameterList.add(tempReq);
             } else {
@@ -109,7 +109,7 @@ public class MynServerGRpcImplProxy extends BaseServiceGrpc.BaseServiceImplBase 
             //todo 业务告警
             return;
         } finally {
-            FbRpcContent.clear();
+            MynRpcContent.clear();
             MDC.clear();
         }
 
@@ -149,7 +149,7 @@ public class MynServerGRpcImplProxy extends BaseServiceGrpc.BaseServiceImplBase 
 
     private void initInterfaceBeanMethodMap() {
         //扫描到的目标类集合
-        Set<Class<?>> targetClazzSet = FbClazzUtils.loadClazzSet(MynServerConfigurationSelector.getPkgList(), MynGRpcServer.class);
+        Set<Class<?>> targetClazzSet = MynClazzUtils.loadClazzSet(MynServerConfigurationSelector.getPkgList(), MynGRpcServer.class);
         if (CollectionUtils.isEmpty(targetClazzSet)) {
             throw new RuntimeException("loadClazzSet_empty : " + Arrays.toString(MynServerConfigurationSelector.getPkgList()));
         }
