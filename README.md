@@ -8,7 +8,7 @@ rcp interface must end with Rpc.
 
 base jdk17 maven spring-boot(3.1.0)
 
-# fast start
+# quick start
 1. mvn clean compile
 2. run grpc-service-provider-demo 
 3. run grpc-service-consumer-demo 
