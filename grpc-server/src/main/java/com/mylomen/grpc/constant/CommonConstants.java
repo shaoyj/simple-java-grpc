@@ -11,7 +11,7 @@ public interface CommonConstants {
      * 基础配置
      */
     interface Base {
-        int TimeoutSecond = 1;
+        int TimeoutSecond = 10;
     }
 
 

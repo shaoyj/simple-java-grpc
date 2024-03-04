@@ -1,6 +1,9 @@
 spring:
   application:
     name: grpc-service-consumer-demo
+  threads:
+    virtual:
+      enabled: true
 
 myn-grpc:
   map:

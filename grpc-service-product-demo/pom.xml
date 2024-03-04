@@ -6,14 +6,16 @@
     <parent>
         <groupId>com.mylomen</groupId>
         <artifactId>simple-java-grpc</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.2-SNAPSHOT</version>
     </parent>
 
     <artifactId>grpc-service-product-demo</artifactId>
+    <version>${api.current.version}</version>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <java.version>21</java.version>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -21,7 +23,7 @@
         <dependency>
             <groupId>com.mylomen</groupId>
             <artifactId>grpc-server</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${api.current.version}</version>
         </dependency>
 
         <dependency>
@@ -43,17 +45,39 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
+
+
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
 
+<!--        <dependency>-->
+<!--            <groupId>com.mylomen</groupId>-->
+<!--            <artifactId>grpc-server</artifactId>-->
+<!--            <version>0.0.2-SNAPSHOT</version>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>com.baomidou</groupId>-->
+<!--            <artifactId>mybatis-plus-boot-starter</artifactId>-->
+<!--            <version>3.5.5</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.mysql</groupId>-->
+<!--            <artifactId>mysql-connector-j</artifactId>-->
+<!--            <version>8.3.0</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; mybatis-spring融合组件 &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.mybatis</groupId>-->
+<!--            <artifactId>mybatis-spring</artifactId>-->
+<!--            <version>3.0.3</version>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.26</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

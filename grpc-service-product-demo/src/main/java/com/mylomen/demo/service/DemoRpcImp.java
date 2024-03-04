@@ -33,7 +33,7 @@ public class DemoRpcImp implements DemoRpc {
     @Override
     public MynResponse<DemoReq> hello(@RequestBody DemoReq req) {
         try {
-            TimeUnit.SECONDS.sleep(3);
+            TimeUnit.MILLISECONDS.sleep(10);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
