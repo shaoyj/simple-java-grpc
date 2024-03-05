@@ -65,6 +65,9 @@ public class GRpcImplProxy implements InvocationHandler {
             return mynResponse;
         }
 
+        //打印当前使用的线程是虚拟线程还是平台线程
+//        System.out.println("client: "+Thread.currentThread());
+
         //构建请求信息
         ComReq.Builder builder = ComReq.newBuilder()
                 //todo 随机数字

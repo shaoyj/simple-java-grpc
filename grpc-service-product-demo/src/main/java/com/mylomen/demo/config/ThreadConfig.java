@@ -1,6 +1,7 @@
 package com.mylomen.demo.config;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration;
 import org.springframework.boot.web.embedded.tomcat.TomcatProtocolHandlerCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,7 +17,7 @@ import java.util.concurrent.Executors;
 @ConditionalOnProperty(prefix = "spring", name = "virtual-thread", havingValue = "true")
 public class ThreadConfig {
 
-    @Bean
+    @Bean(TaskExecutionAutoConfiguration.APPLICATION_TASK_EXECUTOR_BEAN_NAME)
     public AsyncTaskExecutor applicationTaskExecutor() {
         return new TaskExecutorAdapter(Executors.newVirtualThreadPerTaskExecutor());
     }

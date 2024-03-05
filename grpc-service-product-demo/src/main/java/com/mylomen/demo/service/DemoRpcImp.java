@@ -4,6 +4,7 @@ import com.mylomen.demo.api.DemoRpc;
 import com.mylomen.demo.api.req.DemoReq;
 import com.mylomen.gprc.client.domain.MynResponse;
 import com.mylomen.grpc.server.MynGRpcServer;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,5 +39,24 @@ public class DemoRpcImp implements DemoRpc {
             throw new RuntimeException(e);
         }
         return MynResponse.ok(req);
+    }
+
+
+    @GetMapping("/what")
+    public String what() {
+        System.out.println(Thread.currentThread());
+        return "what";
+    }
+
+
+    @GetMapping("/sleep")
+    public String sleep() {
+        try {
+            TimeUnit.MILLISECONDS.sleep(50);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        return "ok";
     }
 }

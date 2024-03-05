@@ -15,3 +15,29 @@ base jdk21 maven spring-boot(3.2.2)
 4. run grpc-service-consumer-demo 
 5. curl http://localhost:8080/t1
 
+# wrk 压测
+```shell
+wrk -t8 -c100 -d10s --latency http://127.0.0.1:8080/grpc
+```
+- VirtualThread(QPS) - 6000
+- PlatformThread(QPS) - 1463
+
+```shell
+wrk -t8 -c200 -d10s --latency http://127.0.0.1:8080/grpc
+```
+- VirtualThread(QPS) - 13000
+- PlatformThread(QPS) - 1465
+
+```shell
+wrk -t8 -c400 -d10s --latency http://127.0.0.1:8080/grpc
+```
+- VirtualThread(QPS) - 16500
+- PlatformThread(QPS) - 1465
+
+
+```shell
+wrk -t8 -c800 -d10s --latency http://127.0.0.1:8080/grpc
+```
+- VirtualThread(QPS) - 16457
+- PlatformThread(QPS) - 1460
+

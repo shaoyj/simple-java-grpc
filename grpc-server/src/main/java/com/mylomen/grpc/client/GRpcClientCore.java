@@ -50,18 +50,41 @@ public class GRpcClientCore implements ApplicationListener<ContextClosedEvent>, 
                 //todo 这里面还可以加入拦截器,过滤器,超时等
                 Integer port = NumberUtils.parseNumber(split[1], Integer.class);
 
+                //根据 业务自行优化
+//                ThreadPoolExecutor executor = new ThreadPoolExecutor(
+//                        Runtime.getRuntime().availableProcessors() * 2 + 1,
+//                        Runtime.getRuntime().availableProcessors() * 5,
+//                        10, TimeUnit.SECONDS,
+//                        new LinkedBlockingDeque<>(512),
+//                        //factory
+//                        (Runnable r) -> {
+//                            //创建一个线程
+//                            Thread t = new Thread(r);
+//                            //给创建的线程设置UncaughtExceptionHandler对象 里面实现异常的默认逻辑
+//                            Thread.setDefaultUncaughtExceptionHandler((Thread thread1, Throwable e) -> logger.error("rpcServerThreadPoolTaskExecutor_catch_err :{}", e.getMessage()));
+//                            return t;
+//                        },
+//                        //拒绝策略
+//                        (Runnable r, ThreadPoolExecutor executorInner) -> {
+//                            logger.error("rpcServerThreadPoolTaskExecutor_custom_Policy :{}  from :{}", r.toString(), executorInner);
+//                            if (!executorInner.isShutdown()) {
+//                                r.run();
+//                            }
+//                        });
 
-                // channel (当前策略：每一个服务提供方配置一个 channel) TODO 待优化
+                // channel (当前策略：每一个服务提供方配置一个 channel)
                 ManagedChannel channel = ManagedChannelBuilder.forAddress(split[0], port)
                         .keepAliveTime(60, TimeUnit.SECONDS)
                         .keepAliveTimeout(30, TimeUnit.SECONDS)
                         .idleTimeout(30, TimeUnit.SECONDS)
-                        //使用虚拟线程
+
+                        //使用 VirtualThread
                         .executor(Executors.newVirtualThreadPerTaskExecutor())
+
+                        //使用 PlatformThread
+                        //.executor(executor)
                         .usePlaintext()
                         .build();
-
-                System.out.println(Thread.currentThread());
 
                 channelMap.put(serverAddress, channel);
 

@@ -62,6 +62,9 @@ public class MynServerGRpcImplProxy extends BaseServiceGrpc.BaseServiceImplBase 
             return;
         }
 
+        //打印当前使用的线程是虚拟线程还是平台线程
+//        System.out.println("server: "+Thread.currentThread());
+
         //解析参数 todo
         Parameter[] parameters = proxyMethod.getParameters();
         List<Object> parameterList = new ArrayList<>(parameters.length);
