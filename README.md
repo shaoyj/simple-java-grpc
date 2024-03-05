@@ -41,3 +41,8 @@ wrk -t8 -c800 -d10s --latency http://127.0.0.1:8080/grpc
 - VirtualThread(QPS) - 16457
 - PlatformThread(QPS) - 1460
 
+# jdk other versions supported
+> When upgrading jdk8 to jdk17 and later versions, please note that the paths of some tool packages have changed.
+
+- Replace the springboot version with the matching jdk version
+- change java.version 、maven.compiler.source、maven.compiler.target
